@@ -19,9 +19,11 @@ def exit():
 	sys.exit()
 def scent(button_num):
 	if(button_num == 1):
-		print("Scent 1 is ON")
+		# check GPIO low or high
+		scentButton1["text"] = "Scent 1 OFF"
 	elif(button_num == 2):
 		print("Scent 2 is ON")
+		print(scentButton2)
 	elif(button_num == 3):
 		print("Scent 3 is ON")
 	elif(button_num == 4):
@@ -36,22 +38,28 @@ def sel():
 
 
 # button 1
-scentButton1 = Button(top, text="Scent 1 ON", command = lambda: scent(1), height=5, width=20).grid(row=0, column=0, padx=50)
+scentButton1 = Button(top, text="Scent 1 ON", command = lambda: scent(1), height=5, width=20)
+scentButton1.grid(row=0, column=0, padx=50)
 
 # # button 2
-scentButton2 = Button(top, text="Scent 2 ON", command = lambda: scent(2), height=5, width=20).grid(row=0, column=5, padx=50)
+scentButton2 = Button(top, text="Scent 2 ON", command = lambda: scent(2), height=5, width=20)
+scentButton2.grid(row=0, column=5, padx=50)
 
 # # button 3   
-scentButton3 = Button(top, text="Scent 3 ON", command = lambda: scent(3), height=5, width=20).grid(row=0, column=10, padx=50)
+scentButton3 = Button(top, text="Scent 3 ON", command = lambda: scent(3), height=5, width=20)
+scentButton3.grid(row=0, column=10, padx=50)
 
 # # button 4
-scentButton4 = Button(top, text="Scent 4 ON", command = lambda: scent(4), height=5, width=20).grid(row=0, column=15, padx=50)
+scentButton4 = Button(top, text="Scent 4 ON", command = lambda: scent(4), height=5, width=20)
+scentButton4.grid(row=0, column=15, padx=50)
 
 # # button 5
-scentButton5 = Button(top, text="Scent 5 ON", command = lambda: scent(5), height=5, width=20).grid(row=0, column=20, padx=50)
+scentButton5 = Button(top, text="Scent 5 ON", command = lambda: scent(5), height=5, width=20)
+scentButton5.grid(row=0, column=20, padx=50)
 
 # #button 6
-scentButton6 = Button(top, text="Scent 6 ON", command = lambda: scent(6), height=5, width=20).grid(row=0, column=25, padx=50)
+scentButton6 = Button(top, text="Scent 6 ON", command = lambda: scent(6), height=5, width=20)
+scentButton6.grid(row=0, column=25, padx=50)
 
 
 
@@ -62,6 +70,8 @@ scentButton6 = Button(top, text="Scent 6 ON", command = lambda: scent(6), height
 # high1.pack(side=BOTTOM)
 # high1.place(x=15, y=55)
 
-exitButton = Button(top, text="Exit", command = exit, height=3, width=10).grid(row=1, columnspan=10)
+exitButton = Button(top, text="Exit", command = exit, height=3, width=10, bd=8)
+exitButton.grid(row=1, columnspan=10)
+exitButton.configure(background='red')
 
 top.mainloop()
